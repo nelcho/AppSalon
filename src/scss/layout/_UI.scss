@@ -1,0 +1,35 @@
+body {
+    background-color: $negro;
+}
+
+.contenedor-estetica{
+    @include tablet { // Genra una division en la pantalla y crea un marco para la imagen al 100% de altura en una de las mitades
+        height: 100vh;
+        @include grid (2, 2.5rem);
+    }
+
+    .imagen { // Le da altura a la imagen y resuleve el problema de verla cortada dentro del marco
+        height: 30rem;
+        background-image: url(../../../build/img/1.jpg);
+        background-size: cover; // Estas dos lineas hacen que la imagen se centre dentro del contenedor y se haga responsive
+        background-position: center center;
+        @include tablet {
+            height: auto;
+        }
+    }
+}
+
+.app { // Actua como contenedor de la navegacion organizando su contenido
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+
+    .seccion {
+        display: none; // Oculta los elementos de seccion
+        margin-top: 2.5rem;
+    }
+}
+
+.mostrar-seccion {
+    display: block !important;
+}
